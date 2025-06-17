@@ -1,44 +1,28 @@
-"use client"
-// import dbConnect, { collectionNameObj } from '@/lib/dbConnect';
+import { dbConnect } from '@/lib/dbConnect';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
-export default  function ServicesSection() {
+export default async function ServicesSection() {
 
-	const [services, setServices] = useState([]);
+	const servicesCollection = dbConnect('test_service');
+	const data = await servicesCollection.find({}).toArray();
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      const response = await fetch('/services.json');
-      const data = await response.json();
-      setServices(data);
-      console.log(data); // Check in browser console
-    };
-
-    fetchServices();
-  }, []);
-
-	// const servicesCollection = dbConnect(collectionNameObj.servicesCollection);
-	// const data = await servicesCollection.find({}).toArray();
-	// const data = await res.json();
-
-	// console.log(data);
+	console.log('database data--->',data);
 
   return (
-	<div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
-		{services.map((item) =>{
+	<div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1'>
+		{data.map((item) =>{
 			return (
 				<div 
-				className='' 
+				className='border-2 border-orange-400 p-2 rounded-lg flex-wrap' 
 				key={item.service_id}>
 					<figure>
-					<Image  alt={item.title} src={item.img} width={314} height={208}/>
+					<Image className='object-cover rounded-lg mb-2'  alt={item.title} src={item.img} width={400} height={400}/>
 					</figure>
 					<div className=''>
 						<div>
-							<h2>{item.title}</h2>
+							<h2 className='font-semibold'>{item.title}</h2>
 						
 						</div>
 						<div className='flex gap-4 items-center'>
