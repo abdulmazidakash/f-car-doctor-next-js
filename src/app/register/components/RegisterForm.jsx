@@ -17,8 +17,9 @@ export default function RegisterForm() {
     const payload = { name, email, password };
     
     const response = await registerUser(payload);
+	console.log('register response', response);
     
-    if (response.success) {
+    if (response.acknowledged === true) {
       alert("Registration successful! ✅", { position: "top-center" });
       form.reset(); // Clear the form
     } else {

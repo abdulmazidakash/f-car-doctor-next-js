@@ -16,8 +16,8 @@ export const registerUser = async(payload)=>{
 		const hashPassword = await bcrypt.hash(password, 10);
 		payload.password = hashPassword; // Store hashed password
 		const result = await userCollection.insertOne(payload);
-		const { acknowledged, insertedId } = result;
-		return { acknowledged, insertedId, success: true, message: "User registered successfully."};
+		result.insertedId = result.insertedId.toString();
+		return result;
 	}
 	return { success: false, message: "User already exists." };
 }

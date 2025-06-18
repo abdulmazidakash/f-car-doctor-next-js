@@ -1,10 +1,12 @@
 'use client'
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 export default function Navbar() {
-	const status = true;
+	const {data: session, status} = useSession();
+	console.log('navbar session--->', session);
 	const navMenu = () =>{
 		return (
 			<>
@@ -49,9 +51,10 @@ export default function Navbar() {
 				height={40}
 				alt='user-logo'
 				className='rounded-full'
+				priority
 				
 				/> </li>
-				<li className='btn btn-error'>Logout</li>
+				<li onClick={()=>signOut()} className='btn btn-error'>Logout</li>
 				</div>
 				</>) : 
 				(<>
