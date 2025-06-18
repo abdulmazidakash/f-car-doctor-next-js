@@ -1,29 +1,24 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 export default function SocialLogin() {
   const router = useRouter();
+  const session = useSession();
 
-  const handleSocialLogin = async (providerName) => {
-    try {
-      const response = await signIn(providerName, { redirect: false });
-      console.log('social login response--->', response);
-
-      if (response?.ok) {
-        toast.success(`Logged in successfully with ${providerName}`);
-        router.push('/');
-      } else {
-        toast.error(`Failed to login with ${providerName}`);
-      }
-    } catch (error) {
-      console.log('social login error', error);
-      toast.error('Something went wrong. Please try again!');
-    }
+  const handleSocialLogin = (providerName) => {
+      signIn(providerName)
   };
+
+  useEffect(()=>{
+	if(session?.status === 'authenticated'){
+		router.push('/');
+		toast.success(`Logged in successfully as ${session?.data?.user?.email}`, { duration: 2000 });
+	}
+  }, [session?.status])
 
   return (
     <div className="flex gap-4 items-center justify-center">

@@ -62,12 +62,12 @@ export default function Navbar() {
                 priority
               />
             </li>
-            <li onClick={() => signOut()} className="btn btn-error">Logout</li>
+            <li onClick={() => signOut()} className="btn btn-error mr-2">Logout</li>
           </div>
         ) : (
           <>
-            <Link href="/register" className="btn btn-error btn-soft">Register</Link>
-            <Link href="/login" className="btn btn-warning btn-soft">Login</Link>
+            {/* <Link href="/register" className="btn btn-error btn-soft">Register</Link> */}
+            <Link href="/login" className="btn btn-warning btn-soft mr-2">Login</Link>
           </>
         )}
         <a className="btn btn-outline">Appointment</a>
