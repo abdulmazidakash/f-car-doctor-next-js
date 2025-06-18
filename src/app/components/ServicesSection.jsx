@@ -1,12 +1,12 @@
-import { dbConnect } from '@/lib/dbConnect';
+import dbConnect, { servicesObj } from '@/lib/dbConnect';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 export default async function ServicesSection() {
 
-	const servicesCollection = dbConnect('test_service');
-	const data = await servicesCollection.find({}).toArray();
+	const serviceCollection = dbConnect(servicesObj.servicesCollection);
+	const data = await serviceCollection.find({}).toArray();
 
 	console.log('database data--->',data);
 
