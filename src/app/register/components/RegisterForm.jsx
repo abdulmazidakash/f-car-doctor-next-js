@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { registerUser } from "@/app/actions/auth/registerUser";
-// import SocialLogin from "@/app/login/components/SocialLogin";
+import SocialLogin from "@/app/login/components/SocialLogin";
 
 export default function RegisterForm() {
  
@@ -73,14 +73,14 @@ export default function RegisterForm() {
       </button> */}
 	  <button className="btn btn-outline btn-success w-full"> Sign Up</button>
 
-      {/* <p className="text-center">Or Sign In with</p>
+      <p className="text-center">Or Sign In with</p>
       <SocialLogin />
       <p className="text-center">
         Already have an account?{" "}
         <Link href="/login" className="text-orange-500 font-bold">
           Login
         </Link>
-      </p> */}
+      </p>
     </form>
   );
 }
