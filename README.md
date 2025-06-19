@@ -31,14 +31,14 @@ A full-stack car service appointment and management web application built with *
 
 ## ✨ Features
 
-✅ User Authentication (NextAuth)
-✅ Secure Password Hashing (bcrypt)
-✅ Service Listings (e.g., Battery Charge, Engine Oil Change, Electrical System)
-✅ Appointment Booking
-✅ Responsive UI with Tailwind CSS and DaisyUI
-✅ Toast Notifications (react-hot-toast & SweetAlert2)
-✅ Modern React 19 features
-✅ ESLint integration for clean code
+- ✅ User Authentication (NextAuth)
+- ✅ Secure Password Hashing (bcrypt)
+- ✅ Service Listings (e.g., Battery Charge, Engine Oil Change, Electrical System)
+- ✅ Appointment Booking
+- ✅ Responsive UI with Tailwind CSS and DaisyUI
+- ✅ Toast Notifications (react-hot-toast & SweetAlert2)
+- ✅ Modern React 19 features
+- ✅ ESLint integration for clean code
 
 ---
 
@@ -143,6 +143,8 @@ Below are example services available in the app:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## 📄 Screenshot
 
 ![Car Doctor Screenshot](./public/assets/car-doctor.png)
 
