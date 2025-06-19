@@ -1,13 +1,14 @@
-import dbConnect, { servicesObj } from '@/lib/dbConnect';
-import { ObjectId } from 'mongodb';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
 export default async function ServicesDetailsPage({params}) {
+
 	const p = await params;
-	const servicesCollection = dbConnect(servicesObj.servicesCollection);
-	const data = await servicesCollection.findOne({_id: new ObjectId(p.id)})
+	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service/${p.id}`);
+	const data = await res.json();
+	console.log('service details page data--->', data);
+	
   return (
 	<div className="container mx-auto my-8">
 		  <section className="flex justify-center ">
