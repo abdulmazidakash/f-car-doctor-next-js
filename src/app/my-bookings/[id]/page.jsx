@@ -7,7 +7,7 @@ export default async function UpdateBookingPage({params}) {
 
 	const p = await params ;
 	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/my-bookings/${p.id}`, {
-		headers: new Headers(await headers()),
+		headers: await headers(),
 	});
 	const data = await res.json();
 

@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const UpdateCheckoutForm = ({ data }) => {
 
@@ -47,6 +48,13 @@ const UpdateCheckoutForm = ({ data }) => {
       }
     );
     const updatedResponse = await res.json();
+	if(updatedResponse.acknowledged === true){
+		Swal.fire({
+					title: "Update successfully",
+					text: "Your booking has been deleted.",
+					icon: "success",
+				  });
+	}
 	console.log('updated data -------->',updatedResponse);
   router.push('/my-bookings')
   };

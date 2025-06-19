@@ -4,7 +4,7 @@ import { headers } from 'next/headers';
 
 const fetchBookingData = async()=>{
 	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service`, {
-		headers: headers(),
+		headers: await headers(),
 	});
 	const d = await res.json();
 	return d;
