@@ -1,4 +1,3 @@
-// import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingButton";
 import DeleteBookingButton from "@/app/my-bookings/components/DeleteBookingsButton";
 import Image from "next/image";
 import Link from "next/link";

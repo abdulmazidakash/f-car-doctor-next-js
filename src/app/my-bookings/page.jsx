@@ -3,12 +3,12 @@ import MyAllBookingsTable from '@/components/tables/MyAllBookingsTable';
 import { headers } from 'next/headers';
 
 const fetchBookingData = async()=>{
-			const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service`, {
-				headers: headers(),
-			});
-			const d = await res.json();
-			return d;
-		}
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service`, {
+		headers: headers(),
+	});
+	const d = await res.json();
+	return d;
+}
 export default async  function MyBookingsPage() {
 	const data = await fetchBookingData();
 
