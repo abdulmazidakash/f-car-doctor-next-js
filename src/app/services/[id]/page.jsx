@@ -5,7 +5,7 @@ import React from 'react'
 export default async function ServicesDetailsPage({params}) {
 
 	const p = await params;
-	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service/${p.id}`);
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service/${p.id}`);
 	const data = await res.json();
 	console.log('service details page data--->', data);
 	

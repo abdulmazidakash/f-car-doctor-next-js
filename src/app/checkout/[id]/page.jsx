@@ -3,7 +3,7 @@ import React from 'react'
 
 export default async function CheckOutPage({params}) {
 	const p = await params;
-	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service/${p.id}`);
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service/${p.id}`);
 	const data = await res.json();
 	console.log('checkout page data---->', data);
 

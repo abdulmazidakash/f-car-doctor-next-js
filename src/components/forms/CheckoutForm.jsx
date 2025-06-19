@@ -40,12 +40,16 @@ const CheckoutForm = ({ data }) => {
     };
 	console.table(bookingPayload);
 // `https://nextjs-car-doctor-sandy.vercel.app/api/service/${p.id}`
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service`,{
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/service`,{
         method: "POST",
         body: JSON.stringify(bookingPayload),
       }
     );
     const postedResponse = await res.json();
+	if(postedResponse.acknowledged === true){
+		toast.success('checkout successfully');
+		form.reset();
+	}
 	console.log('posted data -------->',postedResponse);
 //   router.push('/my-bookings')
   };
